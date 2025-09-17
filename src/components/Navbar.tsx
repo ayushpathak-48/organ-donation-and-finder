@@ -59,29 +59,36 @@ const Navbar = () => {
                 >
                   Dashboard
                 </Link>
-
-                <>
-                  <Link
-                    to="/donor/register"
-                    className={`px-3 py-2 rounded-md text-sm font-medium ${
-                      location.pathname === "/donor/register"
-                        ? "bg-indigo-100 text-indigo-700"
-                        : "text-gray-700 hover:bg-gray-100"
-                    }`}
-                  >
-                    Donate Organ
-                  </Link>
-                  <Link
-                    to="/donor/list"
-                    className={`px-3 py-2 rounded-md text-sm font-medium ${
-                      location.pathname === "/donor/list"
-                        ? "bg-indigo-100 text-indigo-700"
-                        : "text-gray-700 hover:bg-gray-100"
-                    }`}
-                  >
-                    All Donors
-                  </Link>
-                </>
+                <Link
+                  to="/donor/list"
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    location.pathname === "/donor/list"
+                      ? "bg-indigo-100 text-indigo-700"
+                      : "text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  All Donors
+                </Link>
+                <Link
+                  to="/donor/register"
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    location.pathname === "/donor/register"
+                      ? "bg-indigo-100 text-indigo-700"
+                      : "text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  Donate Organ
+                </Link>
+                <Link
+                  to="/donor/my-listings"
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    location.pathname === "/donor/register"
+                      ? "bg-indigo-100 text-indigo-700"
+                      : "text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  Your Listings
+                </Link>
 
                 <div className="relative group ml-2">
                   <button className="flex items-center text-sm font-medium text-gray-700 rounded-full focus:outline-none">
@@ -224,30 +231,38 @@ const Navbar = () => {
                 Dashboard
               </Link>
 
-              <>
-                <Link
-                  to="/donor/register"
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    location.pathname === "/donor/register"
-                      ? "bg-indigo-100 text-indigo-700"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Donate Organ
-                </Link>
-                <Link
-                  to="/donor/list"
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    location.pathname === "/donor/list"
-                      ? "bg-indigo-100 text-indigo-700"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  All Donors
-                </Link>
-              </>
+              <Link
+                to="/donor/list"
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  location.pathname === "/donor/list"
+                    ? "bg-indigo-100 text-indigo-700"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                All Donors
+              </Link>
+              <Link
+                to="/donor/register"
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  location.pathname === "/donor/register"
+                    ? "bg-indigo-100 text-indigo-700"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Donate Organ
+              </Link>
+              <Link
+                to="/donor/my-listings"
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  location.pathname === "/donor/register"
+                    ? "bg-indigo-100 text-indigo-700"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                Your Listings
+              </Link>
 
               <div className="pt-4 pb-3 border-t border-gray-200">
                 <div className="flex items-center px-5">
