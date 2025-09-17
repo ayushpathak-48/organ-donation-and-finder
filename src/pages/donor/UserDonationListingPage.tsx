@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../lib/constants";
+import { Link } from "react-router-dom";
 
 interface Donor {
   id: number;
@@ -253,20 +254,27 @@ const UserDonationListingPage: React.FC = () => {
               />
             </svg>
             <h3 className="text-lg font-medium text-gray-900 mb-2">
-              No donors found
+              Nothing Here
             </h3>
             <p className="text-gray-600 mb-4">
               {donors.length === 0
-                ? "No donors have registered yet. Check back later."
-                : "No donors match your current filters. Try adjusting your search criteria."}
+                ? "you haven't added any organ donation. Try adding new one."
+                : "No listings match your current filters. Try adjusting your search criteria."}
             </p>
-            {donors.length > 0 && (
+            {donors.length > 0 ? (
               <button
                 onClick={clearFilters}
                 className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
               >
                 Clear Filters
               </button>
+            ) : (
+              <Link
+                to="/donor/register"
+                className={`w-full  text-white py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 transition`}
+              >
+                Donate Organ
+              </Link>
             )}
           </div>
         ) : (
