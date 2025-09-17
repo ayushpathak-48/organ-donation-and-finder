@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { API_BASE_URL } from "../../lib/constants/index";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ function LoginPage() {
       params.append("username", email);
       params.append("password", password);
 
-      const res = await fetch("http://localhost:8000/login", {
+      const res = await fetch(`${API_BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

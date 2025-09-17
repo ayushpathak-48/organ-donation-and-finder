@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { API_BASE_URL } from "../../lib/constants";
 
 function SignupPage() {
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ function SignupPage() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:8000/register", {
+      const res = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
