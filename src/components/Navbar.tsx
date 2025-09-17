@@ -82,7 +82,7 @@ const Navbar = () => {
                 <Link
                   to="/donor/my-listings"
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    location.pathname === "/donor/register"
+                    location.pathname === "/donor/my-listings"
                       ? "bg-indigo-100 text-indigo-700"
                       : "text-gray-700 hover:bg-gray-100"
                   }`}
@@ -256,7 +256,7 @@ const Navbar = () => {
               <Link
                 to="/donor/my-listings"
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  location.pathname === "/donor/register"
+                  location.pathname === "/donor/my-listings"
                     ? "bg-indigo-100 text-indigo-700"
                     : "text-gray-700 hover:bg-gray-100"
                 }`}
