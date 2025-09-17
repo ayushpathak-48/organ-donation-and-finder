@@ -1,9 +1,9 @@
 // src/pages/DonorFormPage.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { API_BASE_URL } from "../../lib/constants";
 import { sendTelegramMessage } from "../../lib/utils";
+import api from "../../lib/axios";
 
 const DonorFormPage: React.FC = () => {
   const navigate = useNavigate();
@@ -27,29 +27,10 @@ const DonorFormPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    const token = localStorage.getItem("token");
 
     try {
-      await axios.post(`${API_BASE_URL}/donor/add`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await api.post(`${API_BASE_URL}/donor/add`, formData);
       alert("Donor registered successfully!");
-      // const msg = `🧾**New Organ Added for Donation**\n\n**Organ:** ${formData.organ}\n\n**Blood Group:** ${formData.blood_group}\n\n**Location:** ${formData.location}\n\n**Contact:** \`\`${formData.contact}\`\`\n\n**Name:** ${formData.name}\n\n**Age:** ${formData.age}`;
-      // function escapeMarkdownV2(text: string) {
-      //   return text.replace(/([_*\[\]()~`>#+\-=|{}.!\\])/g, "\\$1");
-      // }
-
-      // const msg =
-      //   `🧾*New Organ Added for Donation*\n\n` +
-      //   `*Organ:* ${escapeMarkdownV2(formData.organ)}\n\n` +
-      //   `*Blood Group:* ${escapeMarkdownV2(formData.blood_group)}\n\n` +
-      //   `*Location:* ${escapeMarkdownV2(formData.location)}\n\n` +
-      //   `*Contact:* \`${escapeMarkdownV2(formData.contact)}\`\n\n` +
-      //   `*Name:* ${escapeMarkdownV2(formData.name)}\n\n` +
-      //   `*Age:* ${escapeMarkdownV2(formData.age)}`;
-
       const msg = `
 🧾<b>New Organ Added for Donation</b>\n
 <b>Organ:</b> ${formData.organ}\n

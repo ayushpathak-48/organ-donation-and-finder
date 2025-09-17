@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { API_BASE_URL } from "../lib/constants";
+import api from "../lib/axios";
 
 type User = {
   id: number;
@@ -47,11 +47,7 @@ function DashboardPage() {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/donors/stats`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await api.get(`${API_BASE_URL}/donors/stats`);
         setStats({
           available: {
             Brain: response.data.stats?.available?.Brain || 0,

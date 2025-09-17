@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -13,6 +13,23 @@ const Navbar = () => {
     localStorage.removeItem("user");
     navigate("/login");
   };
+
+  useEffect(() => {
+    if (
+      location.pathname == "/" ||
+      location.pathname == "/login" ||
+      location.pathname == "/signup" ||
+      location.pathname == "/donor/list"
+    )
+      return;
+    const token = localStorage.getItem("token");
+    const userData = localStorage.getItem("user");
+
+    if (!token || !userData) {
+      navigate("/login");
+      return;
+    }
+  }, [location]);
 
   return (
     <nav className="bg-white shadow-lg sticky top-0">

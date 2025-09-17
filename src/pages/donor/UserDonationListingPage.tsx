@@ -1,8 +1,8 @@
 // src/pages/DonorListPage.tsx
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { API_BASE_URL } from "../../lib/constants";
 import { Link } from "react-router-dom";
+import api from "../../lib/axios";
 
 interface Donor {
   id: number;
@@ -28,11 +28,7 @@ const UserDonationListingPage: React.FC = () => {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/donors/my-listings`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await api.get(`${API_BASE_URL}/donors/my-listings`);
         setDonors(response.data);
       } catch (error) {
         console.error("Error fetching donors:", error);
@@ -47,11 +43,7 @@ const UserDonationListingPage: React.FC = () => {
 
   const markAsDonated = async (data: number) => {
     try {
-      await axios.get(`${API_BASE_URL}/donors/mark-as-donated/${data}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      await api.get(`${API_BASE_URL}/donors/mark-as-donated/${data}`);
 
       setDonors(
         donors.map((donor) => {

@@ -1,7 +1,7 @@
 // src/pages/DonorListPage.tsx
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { API_BASE_URL } from "../../lib/constants";
+import api from "../../lib/axios";
 
 interface Donor {
   id: number;
@@ -26,7 +26,7 @@ const DonorListPage: React.FC = () => {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/donors`);
+        const response = await api.get(`${API_BASE_URL}/donors`);
         setDonors(response.data);
       } catch (error) {
         console.error("Error fetching donors:", error);
