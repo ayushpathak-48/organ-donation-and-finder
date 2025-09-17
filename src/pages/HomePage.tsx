@@ -23,7 +23,7 @@ const Home: React.FC = () => {
               Find Organs
             </Link>
             <Link
-              to="/donor/register"
+              to="/signup"
               className="bg-white hover:bg-gray-100 text-indigo-600 border border-indigo-600 font-medium px-6 py-3 rounded-lg transition duration-300 shadow-md hover:shadow-lg"
             >
               Become a Donor
