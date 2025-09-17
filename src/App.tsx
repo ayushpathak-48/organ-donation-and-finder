@@ -14,16 +14,10 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-
-        {/* Your routes here */}
-        {/* Dashboard */}
         <Route path="/dashboard" element={<DashboardPage />} />
-
-        {/* Donor Pages */}
         <Route path="/donor/register" element={<DonorFormPage />} />
         <Route path="/donor/list" element={<DonorListPage />} />
         <Route

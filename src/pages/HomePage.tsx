@@ -181,40 +181,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Making a Difference
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">1,243</div>
-              <div className="text-sm uppercase tracking-wider">
-                Active Donors
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">4,872</div>
-              <div className="text-sm uppercase tracking-wider">
-                Lives Saved
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">327</div>
-              <div className="text-sm uppercase tracking-wider">Hospitals</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">24</div>
-              <div className="text-sm uppercase tracking-wider">
-                Hours Support
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
@@ -250,15 +216,7 @@ const Home: React.FC = () => {
             © {new Date().getFullYear()} Organ Connect. All rights reserved.
           </p>
           <div className="flex justify-center space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              Terms of Service
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              Contact Us
-            </a>
+            Created by Sampda Gangurde
           </div>
         </div>
       </footer>
