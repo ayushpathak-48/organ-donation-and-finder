@@ -30,18 +30,18 @@ const DonorFormPage: React.FC = () => {
 
     try {
       await api.post(`${API_BASE_URL}/donor/add`, formData);
-      alert("Donor registered successfully!");
       const msg = `
 🧾<b>New Organ Added for Donation</b>\n
 <b>Organ:</b> ${formData.organ}\n
 <b>Blood Group:</b> ${formData.blood_group}\n
 <b>Location:</b> ${formData.location}\n
-<b>Contact:</b> <code>${formData.contact}</code>\n
+<b>Phone Number:</b> <code>${formData.contact}</code>\n
 <b>Name:</b> ${formData.name}\n
 <b>Age:</b> ${formData.age}
 `;
 
       await sendTelegramMessage(msg);
+      alert("Donor registered successfully!");
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
