@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getDonors } from "../services/api";
 import type { Donor } from "../types/donor";
 
 const DistributorDashboard: React.FC = () => {
-  const donors: Donor[] = getDonors();
+  const [donors, setDonors] = useState<Donor[]>([]);
+
+  useEffect(() => {
+    fetchDonors();
+  }, []);
+
+  const fetchDonors = async () => {
+    const donors: Donor[] = await getDonors();
+    setDonors(donors);
+  };
 
   return (
     <div className="p-8">

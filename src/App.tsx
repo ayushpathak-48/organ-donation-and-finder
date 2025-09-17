@@ -1,27 +1,40 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/auth/LoginPage";
+import SignupPage from "./pages/auth/SignupPage";
+import DashboardPage from "./pages/DashboardPage";
+import DonorFormPage from "./pages/donor/DonorFormPage";
+import DonorListPage from "./pages/donor/DonorListPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Finder from "./pages/Finder";
-import DonorForm from "./pages/DonorForm";
-import DistributorDashboard from "./pages/DistributorDashboard";
+import UserDonationListingPage from "./pages/donor/UserDonationListingPage";
 
-const App: React.FC = () => {
+function App() {
   return (
     <Router>
       <Navbar />
-      <main className="min-h-screen bg-gray-50">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/finder" element={<Finder />} />
-          <Route path="/donor-form" element={<DonorForm />} />
-          <Route path="/distributor" element={<DistributorDashboard />} />
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+
+        {/* Your routes here */}
+        {/* Dashboard */}
+        <Route path="/dashboard" element={<DashboardPage />} />
+
+        {/* Donor Pages */}
+        <Route path="/donor/register" element={<DonorFormPage />} />
+        <Route path="/donor/list" element={<DonorListPage />} />
+        <Route
+          path="/donor/my-listings"
+          element={<UserDonationListingPage />}
+        />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </Router>
   );
-};
+}
 
 export default App;
