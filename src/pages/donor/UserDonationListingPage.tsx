@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { API_BASE_URL } from "../../lib/constants";
 import { Link } from "react-router-dom";
 import api from "../../lib/axios";
+import { sendTelegramMessage } from "../../lib/utils";
+// import { sendTelegramMessage } from "../../lib/utils";
 
 interface Donor {
   id: number;
@@ -30,6 +32,7 @@ const UserDonationListingPage: React.FC = () => {
       try {
         const response = await api.get(`${API_BASE_URL}/donors/my-listings`);
         setDonors(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching donors:", error);
         setError("Failed to load donors. Please try again later.");
@@ -44,7 +47,14 @@ const UserDonationListingPage: React.FC = () => {
   const markAsDonated = async (data: number) => {
     try {
       await api.get(`${API_BASE_URL}/donors/mark-as-donated/${data}`);
-
+      const singleDonor = donors.find((donor) => donor.id === data);
+      if (!singleDonor) return;
+      console.log(singleDonor);
+      const msg = `
+      💖<b>Organ Donated By ${singleDonor.name}</b>\n\n<b>Donated Organ:</b> ${singleDonor.organ}\n\n<b>Blood Group:</b> ${singleDonor.blood_group}\n\n<b>Location:</b> ${singleDonor.location}\n\n<b>Phone Number:</b> <code>${singleDonor.contact}</code>\n\n<b>Name:</b> ${singleDonor.name}\n\n<b>Age:</b> ${singleDonor.age}\n\n<i>Thank you for your selfless act of kindness!</i>
+      `;
+      console.log({ msg });
+      await sendTelegramMessage(msg);
       setDonors(
         donors.map((donor) => {
           if (donor.id == data) donor.donated = true;
