@@ -1,10 +1,8 @@
-// src/pages/DonorListPage.tsx
 import React, { useEffect, useState } from "react";
 import { API_BASE_URL } from "../../lib/constants";
 import { Link } from "react-router-dom";
 import api from "../../lib/axios";
 import { sendTelegramMessage } from "../../lib/utils";
-// import { sendTelegramMessage } from "../../lib/utils";
 
 interface Donor {
   id: number;
